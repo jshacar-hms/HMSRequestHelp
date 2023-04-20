@@ -3,7 +3,7 @@
  * Author: Joe Shacar | joseph_shacar@hms.harvard.edu
  * Harvard Medical School
  * Date: 2023-04-17
- * Version: 1.0
+ * Version: 1.1
  * 
  * Creates a button on a Cisco touch panel labled 'Request Help'. When a user clicks this button they will be asked to enter their email address.
  * Based on the time of clicking the button the program will either trigger the 'duringHoursPrompt' (weekdays between 8:00a and 5:00p) or the afterHoursPrompt.
@@ -21,13 +21,13 @@ let isAfterHours;
 let userEmail;
 
 // Slack Webhook URL
-const slackURL = '#####'
+const slackURL = '*****'
 
 const servicenow = {
   // ServiceNow instance, ex: https://harvardmed.service-now.com/ - enter only 'harvardmed'
-  instance: '#####',
+  instance: '*****',
   // ServiceNow Key (Credentials, b64)
-  key: '#####'               
+  key: '*****'               
 };
 
 function alert(title, text, duration) {
@@ -228,11 +228,12 @@ function onPanelClicked(e) {
 function createPanel() {
   const panel = `
     <Extensions>
-      <Version>1.9</Version>
+      <Version>1.7</Version>
         <Panel>
           <Order>1</Order>
             <PanelId>hmsrequesthelp</PanelId>
             <Origin>local</Origin>
+			      <Type>Statusbar</Type>
             <Location>HomeScreenAndCallControls</Location>
             <Icon>Concierge</Icon>
             <Color>#D43B52</Color>
